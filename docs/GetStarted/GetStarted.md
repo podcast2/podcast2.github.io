@@ -110,6 +110,8 @@ chmod -R a+x platform
 
 ## 使用的加速站
 - [https://github.moeyy.xyz](https://github.moeyy.xyz)
+- [https://hub.gitmirror.com/](https://hub.gitmirror.com/)
+- [https://ghproxy.com/](https://ghproxy.com/)
 ## 参考
 - [https://github.com/mxpv/podsync](https://github.com/mxpv/podsync)
 
