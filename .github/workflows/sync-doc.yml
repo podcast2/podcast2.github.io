@@ -23,13 +23,21 @@ jobs:
     - name: Add Upstream
       run: git remote add upstream https://github.com/yajuhua/yajuhua.github.io.git
 
-    - name: Fetch Upstream
-      run: git fetch upstream
+    - name: remove local doc file
+      run: rm -rf docs
 
-    - name: Merge Upstream
-      run: git merge upstream/main --allow-unrelated-histories  # 如果源仓库的默认分支不是 main，请修改为相应的分支
+    - name: git clone yajuhua/yajuhua.github.io
+      run: git clone https://github.com/yajuhua/yajuhua.github.io.git
 
-    - name: Push Changes
-      run: git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: copy docs file
+      run: cp -rf yajuhua.github.io/docs .
+      
+    - name: clearup
+      run: rm -rf yajuhua.github.io
+
+    - name: commit
+      run: |
+          git add -A
+          git commit -m "🤖 sync yajuhua/yajuhua.github.io" || exit 0
+          git push
+      
