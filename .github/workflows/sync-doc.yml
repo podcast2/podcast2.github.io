@@ -1,32 +1,35 @@
-name: Sync Podcast2 Doc 
+name: Sync Podcast2 Doc
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *' # 定时每 6 小时执行一次，可以根据需求调整
+    - cron: '0 0 * * *'  # 每天同步一次
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source repository
-        uses: actions/checkout@v2
-        with:
-          repository: yajuhua/yajuhua.github.io # 替换为源仓库的 URL
-          ref: main # 替换为源仓库的默认分支
+    - name: Checkout Fork Repository
+      uses: actions/checkout@v2
+      with:
+        ref: main  # 如果你的默认分支不是 main，请修改为相应的分支
 
-      - name: Checkout forked repository
-        uses: actions/checkout@v2
-        with:
-          repository: podcast2/podcast2.github.io # 替换为你的 fork 仓库的 URL
-          token: ${{ secrets.GITHUB_TOKEN }} # 使用 secrets.GITHUB_TOKEN 授权访问
+    - name: Set Up Git
+      run: |
+        git config --global user.name 'yajuhua'
+        git config --global user.email 'yajuhua@outlook.com'
 
-      - name: Sync changes
-        run: |
-          git config --global user.email "yajuhua@outlook.com"
-          git config --global user.name "yajuhua"
-          git fetch --prune
-          git merge --ff-only
-          git commit -m "🤖 sync yajuhua/yajuhua.github.io" || exit 0
-          git push
+    - name: Add Upstream
+      run: git remote add upstream https://github.com/yajuhua/yajuhua.github.io.git
+
+    - name: Fetch Upstream
+      run: git fetch upstream
+
+    - name: Merge Upstream
+      run: git merge upstream/main --allow-unrelated-histories  # 如果源仓库的默认分支不是 main，请修改为相应的分支
+
+    - name: Push Changes
+      run: git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
