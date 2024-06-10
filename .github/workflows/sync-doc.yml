@@ -13,13 +13,13 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/yajuhua/yajuhua.github.io # 替换为源仓库的 URL
+          repository: yajuhua/yajuhua.github.io # 替换为源仓库的 URL
           ref: main # 替换为源仓库的默认分支
 
       - name: Checkout forked repository
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/podcast2/podcast2.github.io # 替换为你的 fork 仓库的 URL
+          repository: podcast2/podcast2.github.io # 替换为你的 fork 仓库的 URL
           token: ${{ secrets.GITHUB_TOKEN }} # 使用 secrets.GITHUB_TOKEN 授权访问
 
       - name: Sync changes
