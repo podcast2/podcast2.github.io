@@ -28,4 +28,5 @@ jobs:
           git config --global user.name "yajuhua"
           git fetch --prune
           git merge --ff-only
+          git commit -m "🤖 sync yajuhua/yajuhua.github.io" || exit 0
           git push
