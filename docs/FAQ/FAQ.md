@@ -98,6 +98,9 @@ docker volume rm podcast2
 # 拉取最新镜像
 docker pull yajuhua/podcast2:latest
 
+# 创建新的数据卷
+docker volume create podcast2
+
 # 创建新的容器
 docker run -id --name=podcast2 \
 -p 8088:8088 \
@@ -122,6 +125,6 @@ podcast2 v2.4.0开始支持在线更新，国内需要设置代理，也可以�
 ![上传插件](../images/uploadPlugin.jpg)
 ## 插件bug或失效
 
-由于插件并非使用官方接口，存在不稳定性。若发现插件失效，请提交[issues](https://github.com/yajuhua/podcast2/issues/new/choose)
+由于插件并非使用官方接口，存在不稳定性。若发现插件失效，请提交[issues](https://github.com/yajuhua/podcast2/issues/new?assignees=&labels=bug&projects=&template=bug-report.yaml)
 
 ---
