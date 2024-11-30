@@ -1,3 +1,8 @@
+## 通用
+### 插件提醒
+它一直都在的<br>
+![plugin-remind](./images/plugin-remind.png)
+
 ## YouTube
 ### 支持链接
 - https://www.youtube.com/@laogao/videos
