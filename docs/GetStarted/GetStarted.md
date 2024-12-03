@@ -120,5 +120,3 @@ chmod -R a+x platform
 ## 鸣谢
 特别感谢 [JetBrains](https://www.jetbrains.com) 为开源项目提供免费的 [IntelliJ IDEA](https://www.jetbrains.com/idea)的授权  
 [<img src="../images/jetbrains.svg" width="200"/>](https://www.jetbrains.com)
-## 🐧交流群
-945797272
