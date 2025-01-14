@@ -22,6 +22,9 @@ yt-dlp可能会出现[Sign in to confirm you’re not a bot. This helps protect 
 > 2. **会创建cloudflare workers**
 > 3. **会安装和操作v2raya**
 
+### mp4扩展名
+更多选项（插件2.5.3+）
+![mp4扩展名](./images/mp4-ext.png)
 #### 使用cloudflare workers创建vless节点
 - 参考[cmliu/edgetunnel](https://github.com/cmliu/edgetunnel)
 - 参考[zizifn/edgetunnel](https://github.com/zizifn/edgetunnel)
